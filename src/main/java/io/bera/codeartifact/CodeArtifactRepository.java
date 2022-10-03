@@ -22,6 +22,8 @@ import org.gradle.internal.resource.local.FileStore;
 import org.gradle.internal.resource.local.LocallyAvailableResourceFinder;
 
 import java.net.URI;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 public class CodeArtifactRepository extends DefaultMavenArtifactRepository {
@@ -42,6 +44,6 @@ public class CodeArtifactRepository extends DefaultMavenArtifactRepository {
 
     @Override
     public Set<URI> getArtifactUrls() {
-        return Set.of(getUrl());
+        return new HashSet<>(Collections.singletonList(getUrl()));
     }
 }
