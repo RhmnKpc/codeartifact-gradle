@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group 'io.bera'
+version '1.0.0.RELEASE'
+
+//publishing {
+//    repositories {
+//        maven {
+//            url = "$buildDir/repo"
+//        }
+//    }
+//}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation(platform("software.amazon.awssdk:bom:2.17.102"))
+    implementation('software.amazon.awssdk:codeartifact')
+    implementation('software.amazon.awssdk:sts')
+}
+gradlePlugin {
+    plugins {
+        clarity {
+            id = 'io.bera.codeartifact'
+            implementationClass = 'io.bera.codeartifact.CodeArtifactPlugin'
+        }
+    }
+}
