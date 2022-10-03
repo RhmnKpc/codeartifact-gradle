@@ -8,14 +8,8 @@ plugins {
 group 'io.bera'
 version '1.0.0.RELEASE'
 
-//publishing {
-//    repositories {
-//        maven {
-//            url = "$buildDir/repo"
-//        }
-//    }
-//}
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -31,5 +25,22 @@ gradlePlugin {
             id = 'io.bera.codeartifact'
             implementationClass = 'io.bera.codeartifact.CodeArtifactPlugin'
         }
+    }
+}
+pluginBundle {
+    website = 'https://github.com/RhmnKpc/codeartifact-gradle'
+    vcsUrl = 'https://github.com/RhmnKpc/codeartifact-gradle'
+    description = 'Login to aws codeartifact'
+    tags = ['aws', 'codeartifact']
+
+    plugins {
+        clarity {
+            displayName = 'Gradle Codeartifact plugin'
+        }
+    }
+}
+release {
+    git {
+        requireBranch = "main"
     }
 }
