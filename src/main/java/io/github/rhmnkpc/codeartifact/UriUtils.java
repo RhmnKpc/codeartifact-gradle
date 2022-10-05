@@ -1,4 +1,4 @@
-package io.bera.codeartifact;
+package io.github.rhmnkpc.codeartifact;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

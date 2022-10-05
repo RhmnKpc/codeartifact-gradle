@@ -1,4 +1,4 @@
-package io.bera.codeartifact
+package io.github.rhmnkpc.codeartifact
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

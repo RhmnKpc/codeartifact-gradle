@@ -1,5 +1,5 @@
 
-package io.bera.codeartifact;
+package io.github.rhmnkpc.codeartifact;
 
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;

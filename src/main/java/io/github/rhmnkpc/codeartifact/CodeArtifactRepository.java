@@ -1,4 +1,4 @@
-package io.bera.codeartifact;
+package io.github.rhmnkpc.codeartifact;
 
 import org.gradle.api.artifacts.repositories.AuthenticationContainer;
 import org.gradle.api.internal.FeaturePreviews;

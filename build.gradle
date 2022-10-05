@@ -8,7 +8,7 @@ plugins {
     id 'maven-publish'
 }
 
-group 'io.bera'
+group 'io.github.rhmnkpc'
 version '1.0.0.RELEASE'
 
 repositories {
@@ -25,8 +25,8 @@ dependencies {
 gradlePlugin {
     plugins {
         clarity {
-            id = 'io.bera.codeartifact'
-            implementationClass = 'io.bera.codeartifact.CodeArtifactPlugin'
+            id = 'io.github.rhmnkpc.codeartifact'
+            implementationClass = 'io.github.rhmnkpc.codeartifact.CodeArtifactPlugin'
         }
     }
 }

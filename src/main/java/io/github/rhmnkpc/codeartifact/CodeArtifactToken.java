@@ -1,5 +1,5 @@
 
-package io.bera.codeartifact;
+package io.github.rhmnkpc.codeartifact;
 
 import org.gradle.api.services.BuildService;
 import org.gradle.api.services.BuildServiceParameters.None;

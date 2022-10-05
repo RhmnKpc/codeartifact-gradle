@@ -1,4 +1,4 @@
-package io.bera.codeartifact;
+package io.github.rhmnkpc.codeartifact;
 
 import java.net.MalformedURLException;
 import java.net.URL;
