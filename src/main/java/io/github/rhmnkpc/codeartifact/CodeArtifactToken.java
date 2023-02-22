@@ -12,13 +12,13 @@ public class CodeArtifactToken implements BuildService<None> {
 
     private final ConcurrentHashMap<String, String> tokensCache = new ConcurrentHashMap<>();
 
-    public String getToken(URI uri) throws MalformedURLException {
-        return getToken(uri.toString(), getProfile(uri));
+    public String getToken(URI uri, String accessKey, String secretKey) throws MalformedURLException {
+        return getToken(uri.toString(), getProfile(uri), accessKey, secretKey);
     }
 
-    private String getToken(String uri, String profile) throws MalformedURLException {
+    private String getToken(String uri, String profile, String accessKey, String secretKey) throws MalformedURLException {
         CodeArtifactUrl codeArtifactUrl = CodeArtifactUrl.of(uri);
-        return tokensCache.computeIfAbsent("AWS_CODE_ARTIFACT_TOKEN", tc -> CodeArtifactTokenFactory.getAuthorizationToken(codeArtifactUrl, profile).authorizationToken());
+        return tokensCache.computeIfAbsent("AWS_CODE_ARTIFACT_TOKEN", tc -> CodeArtifactTokenFactory.getAuthorizationToken(codeArtifactUrl, profile, accessKey, secretKey).authorizationToken());
 
     }
 

@@ -11,14 +11,14 @@ import software.amazon.awssdk.services.codeartifact.model.GetAuthorizationTokenR
 
 public class CodeArtifactTokenFactory {
 
-    public static GetAuthorizationTokenResponse getAuthorizationToken(CodeArtifactUrl codeArtifactUrl, String profileName) {
+    public static GetAuthorizationTokenResponse getAuthorizationToken(CodeArtifactUrl codeArtifactUrl, String profileName, String accessKey, String secretKey) {
         CodeartifactClientBuilder builder = CodeartifactClient.builder()
                 .region(Region.of(codeArtifactUrl.getRegion()));
 
         if (profileName != null) {
             builder = builder.credentialsProvider(ProfileCredentialsProvider.create(profileName));
         } else {
-            AwsBasicCredentials awsBasicCredentials = AwsBasicCredentials.create(System.getProperty("AWS_CODE_ARTIFACT_ACCESS_KEY_ID"), System.getProperty("AWS_CODE_ARTIFACT_SECRET_ACCESS_KEY"));
+            AwsBasicCredentials awsBasicCredentials = AwsBasicCredentials.create(accessKey, secretKey);
             builder = builder.credentialsProvider(StaticCredentialsProvider.create(awsBasicCredentials)).region(Region.of(codeArtifactUrl.getRegion()));
         }
         CodeartifactClient client = builder.build();

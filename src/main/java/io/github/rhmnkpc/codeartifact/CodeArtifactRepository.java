@@ -28,8 +28,11 @@ import java.util.Set;
 
 public class CodeArtifactRepository extends DefaultMavenArtifactRepository {
 
-    public CodeArtifactRepository(FileResolver fileResolver, RepositoryTransportFactory transportFactory, LocallyAvailableResourceFinder<ModuleComponentArtifactMetadata> locallyAvailableResourceFinder, InstantiatorFactory instantiatorFactory, FileStore<ModuleComponentArtifactIdentifier> artifactFileStore, MetaDataParser<MutableMavenModuleResolveMetadata> pomParser, GradleModuleMetadataParser metadataParser, AuthenticationContainer authenticationContainer, FileStore<String> resourcesFileStore, FileResourceRepository fileResourceRepository, MavenMutableModuleMetadataFactory metadataFactory, IsolatableFactory isolatableFactory, ObjectFactory objectFactory, DefaultUrlArtifactRepository.Factory urlArtifactRepositoryFactory, ChecksumService checksumService, ProviderFactory providerFactory, FeaturePreviews featurePreviews) {
+    private final String url;
+
+    public CodeArtifactRepository(FileResolver fileResolver, RepositoryTransportFactory transportFactory, LocallyAvailableResourceFinder<ModuleComponentArtifactMetadata> locallyAvailableResourceFinder, InstantiatorFactory instantiatorFactory, FileStore<ModuleComponentArtifactIdentifier> artifactFileStore, MetaDataParser<MutableMavenModuleResolveMetadata> pomParser, GradleModuleMetadataParser metadataParser, AuthenticationContainer authenticationContainer, FileStore<String> resourcesFileStore, FileResourceRepository fileResourceRepository, MavenMutableModuleMetadataFactory metadataFactory, IsolatableFactory isolatableFactory, ObjectFactory objectFactory, DefaultUrlArtifactRepository.Factory urlArtifactRepositoryFactory, ChecksumService checksumService, ProviderFactory providerFactory, FeaturePreviews featurePreviews, String url) {
         super(fileResolver, transportFactory, locallyAvailableResourceFinder, instantiatorFactory, artifactFileStore, pomParser, metadataParser, authenticationContainer, resourcesFileStore, fileResourceRepository, metadataFactory, isolatableFactory, objectFactory, urlArtifactRepositoryFactory, checksumService, providerFactory, featurePreviews);
+        this.url = url;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class CodeArtifactRepository extends DefaultMavenArtifactRepository {
 
     @Override
     public URI getUrl() {
-        return URI.create(System.getProperty("AWS_CODE_ARTIFACT_URL"));
+        return URI.create(this.url);
     }
 
     @Override

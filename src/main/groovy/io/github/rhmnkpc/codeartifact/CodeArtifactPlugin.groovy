@@ -70,9 +70,10 @@ class CodeArtifactPlugin implements Plugin<Project> {
 
         this.codeArtifactRepository = new CodeArtifactRepository(fileResolver, transportFactory, locallyAvailableResourceFinder, instantiatorFactory, null,
                 null, null, authenticationContainer, null, fileResourceRepository, metadataFactory, isolatableFactory,
-                objectFactory, urlArtifactRepository, checksumService, providerFactory, featurePreviews);
-
-        String token = codeArtifactTokenProvider.get().getToken(codeArtifactRepository.getUrl())
+                objectFactory, urlArtifactRepository, checksumService, providerFactory, featurePreviews, project.properties["AWS_CODE_ARTIFACT_URL"]);
+        def awsAccessKey = project.properties["AWS_CODE_ARTIFACT_ACCESS_KEY_ID"]
+        def awsSecretAccessKey = project.properties["AWS_CODE_ARTIFACT_SECRET_ACCESS_KEY"]
+        String token = codeArtifactTokenProvider.get().getToken(codeArtifactRepository.getUrl(),awsAccessKey,awsSecretAccessKey)
         codeArtifactRepository.credentials({
             it.username = "aws"
             it.password = token
