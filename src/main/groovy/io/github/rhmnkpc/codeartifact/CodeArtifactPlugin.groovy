@@ -73,7 +73,7 @@ class CodeArtifactPlugin implements Plugin<Project> {
                 objectFactory, urlArtifactRepository, checksumService, providerFactory, featurePreviews, project.properties["AWS_CODE_ARTIFACT_URL"]);
         def awsAccessKey = project.properties["AWS_CODE_ARTIFACT_ACCESS_KEY_ID"]
         def awsSecretAccessKey = project.properties["AWS_CODE_ARTIFACT_SECRET_ACCESS_KEY"]
-        String token = codeArtifactTokenProvider.get().getToken(codeArtifactRepository.getUrl(),awsAccessKey,awsSecretAccessKey)
+        String token = codeArtifactTokenProvider.get().getToken(codeArtifactRepository.getUrl(), awsAccessKey, awsSecretAccessKey)
         codeArtifactRepository.credentials({
             it.username = "aws"
             it.password = token
@@ -100,6 +100,7 @@ class CodeArtifactPlugin implements Plugin<Project> {
         mavenPublication.artifactId = "$project.name"
         mavenPublication.groupId = "$project.group"
         mavenPublication.version = "$project.version"
+        mavenPublication.from(project.components["java"])
 
     }
 
