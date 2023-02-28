@@ -28,7 +28,7 @@ AWS_CODE_ARTIFACT_SECRET_ACCESS_KEY=xxxxxxxx
 ```
 plugins {
     id 'maven-publish'
-    id 'io.github.rhmnkpc.codeartifact' version '1.0.0.RELEASE'
+    id 'io.github.rhmnkpc.codeartifact' version '1.0.2.RELEASE'
 }
 
 repositories {
@@ -44,7 +44,7 @@ repositories {
 ```
 plugins {
     id 'maven-publish'
-    id 'io.github.rhmnkpc.codeartifact' version '1.0.0.RELEASE'
+    id 'io.github.rhmnkpc.codeartifact' version '1.0.2.RELEASE'
 }
 
 
@@ -54,7 +54,7 @@ plugins {
 `Adding only code artifact repository without publishing
 ```
 plugins {
-    id 'io.github.rhmnkpc.codeartifact' version '1.0.0.RELEASE'
+    id 'io.github.rhmnkpc.codeartifact' version '1.0.2.RELEASE'
 }
 
 repositories {
