@@ -9,7 +9,7 @@ plugins {
 }
 
 group 'io.github.rhmnkpc'
-version '1.0.3.RELEASE'
+version '1.0.4'
 
 repositories {
     mavenLocal()
